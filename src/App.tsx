@@ -1,13 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Button } from 'antd'
+import { useSelector, useDispatch } from 'react-redux'
+import Menu from './pages/Menu'
 
 function App() {
+  let dispatch = useDispatch()
   return (
     <div className="App">
-      册数
-      <Button type="primary">哈哈哈</Button>
+      <Button type="primary">测试</Button>
+      <Menu></Menu>
     </div>
   );
 }

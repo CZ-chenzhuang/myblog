@@ -1,0 +1,1 @@
+export const SET_MENU = 'meun/SET_MENU'
