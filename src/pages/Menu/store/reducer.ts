@@ -3,6 +3,5 @@ const defaultState = {
 }
 
 export default (state = defaultState, action: any) => {
-  console.log(action)
   return state
 }
