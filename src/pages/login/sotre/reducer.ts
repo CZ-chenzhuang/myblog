@@ -1,10 +1,25 @@
 import * as actionTypes from './constants'
 
 const defaultProps = {
-
+  isLogin: false,
+  loading: false
 }
 
-export default (state = defaultProps, action: object) => {
-  console.log(action, '传到reducer了')
-  return state
+export default (state = defaultProps, action: ActionParams) => {
+  switch (action.type) {
+    case actionTypes.login:
+      return {
+        ...state,
+        isLogin: true,
+        loading: false
+      }
+    
+      case actionTypes.changeLoading:
+        return {
+          ...state,
+          loading: true
+        }
+    default:
+        return state;
+  }
 }

@@ -6,7 +6,6 @@ export const setMenu = (data: any) => ({
 })
 
 export const getMenu = () => {
-  console.log('调用了action')
   return (dispacth: any) => {
     setTimeout(() => {
       dispacth(setMenu('菜单名称'))

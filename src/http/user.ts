@@ -1,5 +1,5 @@
 import http from './index'
 
-export const login = (url:string, data: object) => {
-  return http.post(url, null, { age: 15 })
+export const login = (data: object) => {
+  return http.post('login', data)
 }

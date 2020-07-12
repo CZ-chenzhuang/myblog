@@ -1,12 +1,15 @@
 import React from 'react';
-// import { useSelector, useDispatch } from 'react-redux'
-import Login from './pages/login'
+import routes from './routes'
+import { BrowserRouter } from 'react-router-dom'
+import RouterView from './routes/RouterView'
 
 function App() {
   // let dispatch = useDispatch()
   return (
     <div className="App">
-      <Login></Login>
+      <BrowserRouter>
+        <RouterView routes={routes}></RouterView>
+      </BrowserRouter>
     </div>
   );
 }

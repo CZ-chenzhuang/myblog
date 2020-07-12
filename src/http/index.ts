@@ -15,7 +15,7 @@ class Http {
   constructor(){
     const { axios } = this
     axios.defaults.timeout = 10000
-    axios.defaults.baseURL = 'sas'
+    axios.defaults.baseURL = process.env.REACT_APP_API_URL
     this.initInterceptors()
   }
 

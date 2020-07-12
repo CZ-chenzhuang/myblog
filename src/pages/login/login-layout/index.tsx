@@ -3,14 +3,14 @@ import { Form, Input, Button } from 'antd';
 const { Item } = Form
 
 interface Iprops {
-  fetch: any
+  fetch: any,
+  loading: boolean
 }
 
 const LoginLayout: React.FC<Iprops> = (props) => {
-  let { fetch } = props
+  let { fetch, loading } = props
   const handleLogin = (value: object) => {
     fetch(value)
-    console.log(value)
   }
 
   return (
@@ -27,7 +27,11 @@ const LoginLayout: React.FC<Iprops> = (props) => {
             <Input type="password" placeholder="请输入密码" allowClear></Input>
           </Item>
           <Item>
-            <Button type="primary" htmlType="submit">登录</Button>
+            <Button 
+              type="primary" 
+              htmlType="submit"
+              loading={loading}
+            >登录</Button>
           </Item>
         </Form>
         <p>其他方式登录</p>
