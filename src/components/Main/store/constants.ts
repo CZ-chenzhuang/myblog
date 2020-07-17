@@ -1,0 +1,1 @@
+export const topMenuChange: any = 'main/TOP_MENU_CHANGE'

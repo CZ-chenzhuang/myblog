@@ -21,6 +21,7 @@ const PickColor: React.FC<Iprops> = () => {
 
   const Picker = () => (
     <SketchPicker
+      color={boxColor}
       onChange={handleChange}
       onChangeComplete={handleChangeComplete}
     />

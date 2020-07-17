@@ -2,6 +2,7 @@ import React from 'react'
 import { Route, Redirect, Switch } from 'react-router-dom'
 
 function RouterView(props){
+  console.log(props, 'RouterView__props')
   let { routes } = props
   let redirectRoutes = routes.filter(item => item.redirect)
   let redirectCom = redirectRoutes.map((route,index) => <Redirect key={index} path={route.path} to={route.redirect}/>)

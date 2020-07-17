@@ -1,6 +1,6 @@
 interface ActionParams<T = any> {
   type: string;
-  payload: Object<T>
+  data: Object<T>
 }
 // 咱们在这里定义真个项目的状态树的 接口类型
 interface IState {
@@ -9,4 +9,5 @@ interface IState {
   };
   user: IUser;
   menu: IMenu;
+  main
 }

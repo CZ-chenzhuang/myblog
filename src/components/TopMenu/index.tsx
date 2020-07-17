@@ -1,6 +1,5 @@
 import React from 'react'
 import './style.less'
-import { Menu } from 'antd';
 import LeftMenu from './LeftMenu'
 import RightSet from './RightSet'
 interface Iprops {

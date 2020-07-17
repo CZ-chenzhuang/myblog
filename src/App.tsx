@@ -1,14 +1,14 @@
 import React from 'react';
-import routes from './routes'
+import route from './routes'
 import { BrowserRouter } from 'react-router-dom'
-import RouterView from './routes/RouterView'
+import { renderRoutes } from 'react-router-config'
 
 function App() {
-  // let dispatch = useDispatch()
+  const routes: any = route
   return (
     <div className="App">
       <BrowserRouter>
-        <RouterView routes={routes}></RouterView>
+        {renderRoutes(routes)}
       </BrowserRouter>
     </div>
   );

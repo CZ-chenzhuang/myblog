@@ -1,44 +1,32 @@
 import React, { useState } from 'react'
 import './style.less'
+import { renderRoutes  } from 'react-router-config'
+import Menus from '../Menus'
 import TopMenu from '../TopMenu'
-// import RightMenu from '../RightMenu'
-import { Layout, Menu } from 'antd';
+import { Layout } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-  UploadOutlined,
 } from '@ant-design/icons';
-const { Header, Sider, Content } = Layout;
+const { Header, Content } = Layout;
 
 interface Iprops {
-
+  route
 }
 
-const Main: React.FC<Iprops> = () => {
+const Main: React.FC<Iprops> = (props) => {
+  console.log(props, 'main得props')
+  const { route } = props
   const [collapsed, setCollapsed] = useState(false)
+
   const toggle = () => {
     setCollapsed(!collapsed)
   }
 
-
   return (
     <Layout className="main">
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="main-logo" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-          <Menu.Item key="1" icon={<UserOutlined />}>
-            nav 1
-          </Menu.Item>
-          <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-            nav 2
-          </Menu.Item>
-          <Menu.Item key="3" icon={<UploadOutlined />}>
-            nav 3
-          </Menu.Item>
-        </Menu>
-      </Sider>
+      <Menus collapsed={collapsed}></Menus>
+
       <Layout className="main-layout">
         <Header className="main-layout-header" style={{ padding: 0 }}>
           {React.createElement(
@@ -57,6 +45,7 @@ const Main: React.FC<Iprops> = () => {
           }}
         >
           Content
+          {renderRoutes(route.routes)}
         </Content>
       </Layout>
     </Layout>
