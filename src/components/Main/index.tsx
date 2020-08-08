@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import './style.less'
 import { renderRoutes  } from 'react-router-config'
 import Menus from '../Menus'
@@ -11,13 +12,14 @@ import {
 const { Header, Content } = Layout;
 
 interface Iprops {
-  route
+  route: {routes: []},
+  history
 }
 
 const Main: React.FC<Iprops> = (props) => {
-  console.log(props, 'main得props')
-  const { route } = props
+  const { route, history } = props
   const [collapsed, setCollapsed] = useState(false)
+  const { menus } = useSelector((state:IState) => state.main)
 
   const toggle = () => {
     setCollapsed(!collapsed)
@@ -25,7 +27,7 @@ const Main: React.FC<Iprops> = (props) => {
 
   return (
     <Layout className="main">
-      <Menus collapsed={collapsed}></Menus>
+      <Menus collapsed={collapsed} history={history}></Menus>
 
       <Layout className="main-layout">
         <Header className="main-layout-header" style={{ padding: 0 }}>

@@ -1,20 +1,20 @@
 import React, { useEffect } from 'react'
 import { renderRoutes, RouteConfigComponentProps } from 'react-router-config'
-import { actions } from '@/components/Main/store'
-import { useDispatch } from 'react-redux'
+import { useSetMenus } from '@/hooks'
+import { getBlogList } from '@/http/blog'
 interface Iprops extends RouteConfigComponentProps {
-  route
+  route: {routes:[]}
 }
 
 
 const Blog: React.FC<Iprops> = props => {
   const { route } = props
-  const dispath = useDispatch()
-
+  // 设置菜单
+  useSetMenus(route.routes || [])
   useEffect(() => {
-    dispath(actions.topMenuChange(route.routes))
-  }, [dispath, route])
-
+    console.log('useEffect')
+    getBlogList()
+  }, [])
   return (
     <div className="blog">
       {

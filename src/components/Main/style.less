@@ -1,6 +1,9 @@
+@import '../../assets/css/var.less';
+
 .main {
   height: 100%;
   &-layout {
+    transition: all 2s;
     &-header {
       display: flex;
       background: #fff;
@@ -16,6 +19,9 @@
           color: #1890ff;
         }
       }
+    }
+    &-cont {
+      background:@login-color;
     }
   }
   .slider {

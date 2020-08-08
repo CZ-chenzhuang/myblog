@@ -1,17 +1,16 @@
-import React from 'react'
-import { Layout, Menu } from 'antd';
+import React, { useCallback } from 'react'
 import { useSelector } from 'react-redux'
+import { Layout, Menu } from 'antd';
 const { Sider } = Layout;
 const { SubMenu } = Menu;
 
 interface Iprops {
-  collapsed: boolean
+  collapsed: boolean,
+  history
 }
 
 const Menus: React.FC<Iprops> = (props) => {
-  const { collapsed } = props
-  const { menus } = useSelector((state:IState) => state.main)
-
+  const { collapsed, history } = props
   const getMenus = (menus) => (
     menus.map(item => {
       if(item.routes) {
@@ -27,6 +26,12 @@ const Menus: React.FC<Iprops> = (props) => {
       }
     })
   )
+  const { menus } = useSelector((state:IState) => state.main)
+  const handleClickLink = useCallback(({ key }) => {
+    history.push(key)
+  }, [])
+
+  if (menus.length === 0) return null
 
   return (
     <Sider
@@ -36,7 +41,12 @@ const Menus: React.FC<Iprops> = (props) => {
       collapsed={collapsed}
     >
       <div className="slider-logo" />
-      <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
+      <Menu
+        onClick={handleClickLink}
+        theme="dark"
+        mode="inline" 
+        defaultSelectedKeys={['1']}
+      >
         {getMenus(menus)}
       </Menu>
     </Sider>
