@@ -8,7 +8,7 @@ interface Iprops extends RouteConfigComponentProps {
 
 const Blog: React.FC<Iprops> = props => {
   const { route } = props
-  // 设置菜单
+  // 设置菜单1
   useSetMenus(route.routes || [])
   useEffect(() => {
     getBlogList()
