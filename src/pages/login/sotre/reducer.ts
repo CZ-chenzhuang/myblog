@@ -13,12 +13,16 @@ export default (state = defaultProps, action: ActionParams) => {
         isLogin: true,
         loading: false
       }
-    
-      case actionTypes.changeLoading:
-        return {
-          ...state,
-          loading: true
-        }
+    case actionTypes.changeLoading:
+      return {
+        ...state,
+        loading: true
+      }
+    case actionTypes.signOut:
+      return {
+        ...state,
+        isLogin: false
+      }
     default:
         return state;
   }

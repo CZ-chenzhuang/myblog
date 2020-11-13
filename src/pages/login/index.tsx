@@ -12,14 +12,13 @@ interface Iprops {
 
 const Login: React.FC<Iprops> = (props) => {
   const { isLogin, loading } = useSelector((state: any) => state.login)
-  console.log(isLogin, loading)
   const dispatch = useDispatch()
   const handleLogin = (value: object) => {
     dispatch(setLogin(value))
   }
 
   if (isLogin) {
-    return <Redirect to="/aaa"></Redirect>
+    return <Redirect to="/"></Redirect>
   }
 
   return (

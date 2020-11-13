@@ -6,6 +6,11 @@ import personRouter from './config/person.router'
 
 export default [
   {
+    path: '/login',
+    exct: true,
+    component: Login
+  },
+  {
     path: '/',
     component:Main,
     routes: [
@@ -13,9 +18,5 @@ export default [
       blogRouter,
       personRouter
     ]
-  },
-  {
-    path: '/login',
-    component: Login
   }
 ]

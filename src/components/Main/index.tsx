@@ -36,7 +36,7 @@ const Main: React.FC<Iprops> = (props) => {
             className: 'trigger',
             onClick: toggle,
           })}
-          <TopMenu></TopMenu>
+          <TopMenu history={history}></TopMenu>
         </Header>
         <Content
           className="main-layout-cont"

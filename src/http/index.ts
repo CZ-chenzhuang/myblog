@@ -15,7 +15,7 @@ class Http {
   constructor(){
     const { axios } = this
     axios.defaults.timeout = 10000
-    // axios.defaults.baseURL = process.env.REACT_APP_API_URL
+    axios.defaults.baseURL = process.env.REACT_APP_API_URL
     this.initInterceptors()
   }
 
@@ -32,7 +32,7 @@ class Http {
       if (res.data.code === '000') {
         message.error('服务器错误')
       }
-      return res
+      return res.data
     }, (err: AxiosError) => Promise.reject(err))
   }
 

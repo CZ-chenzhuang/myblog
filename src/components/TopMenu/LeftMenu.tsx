@@ -7,7 +7,6 @@ interface Iprops {
 }
 
 const Header: React.FC<Iprops> = (props) => {
-  console.log(props, actions,'leftMenu--prop')
   const { history } = props
   const handleClickLink = useCallback(({key}) => {
     history.push(key)
